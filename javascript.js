@@ -1,6 +1,12 @@
 const output = document.querySelector('output');
 const addNewBook = document.querySelector('#new-book');
-const dialog = document.querySelector('dialog')
+const dialog = document.querySelector('dialog');
+const confirmBtn = document.querySelector('#confirmBtn');
+const cancelBtn = document.querySelector('#cancelBtn');
+
+const bookTitle = document.querySelector('#bookTitle');
+const bookAuthor = document.querySelector('#bookAuthor');
+const bookPages = document.querySelector('#bookPages');
 
 const library = [];
 
@@ -47,3 +53,19 @@ function displayBook () {
 displayBook();
 
 addNewBook.addEventListener('click', () => dialog.showModal());
+
+confirmBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    dialog.close()
+    console.log(bookTitle.value)
+    console.log(bookAuthor.value)
+    console.log(bookPages.value)
+
+    const readStatus = document.querySelector('input[type = "radio"]:checked')
+    console.log(readStatus.value);
+});
+
+cancelBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    dialog.close();
+});
