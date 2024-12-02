@@ -1,4 +1,6 @@
 const output = document.querySelector('output');
+const addNewBook = document.querySelector('#new-book');
+const dialog = document.querySelector('dialog')
 
 const library = [];
 
@@ -42,4 +44,6 @@ function displayBook () {
     }
 }
 
-displayBook()
+displayBook();
+
+addNewBook.addEventListener('click', () => dialog.showModal());

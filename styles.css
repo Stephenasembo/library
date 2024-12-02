@@ -1,4 +1,4 @@
-div {
+output div {
     border: 2px solid black;
     min-width: 150px;
     text-align: center;
@@ -10,4 +10,12 @@ output {
     flex-wrap: wrap;
     flex: 1;
     gap: 20px;
+}
+
+fieldset {
+    display: flex;
+}
+
+fieldset div {
+    flex: 1;
 }
