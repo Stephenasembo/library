@@ -1,3 +1,5 @@
+const output = document.querySelector('output');
+
 const library = [];
 
 function addBookToLibrary () {
@@ -7,7 +9,7 @@ function addBookToLibrary () {
 
 function Book (title, author, pages, read) {
     this.title = title,
-    this.author = title,
+    this.author = author,
     this.pages = pages,
     this.read = read
 };
@@ -18,10 +20,25 @@ addBookToLibrary()
 
 function displayBook () {
     for (let book of library) {
-        console.log(book.title);
-        console.log(book.author);
-        console.log(book.pages);
-        console.log(book.read);
+        const card = document.createElement('div');
+
+        const titlepara = document.createElement('p');
+        titlepara.innerText = book.title;
+        card.appendChild(titlepara);
+
+        const authorpara = document.createElement('p');
+        authorpara.innerText = book.author;
+        card.appendChild(authorpara);
+
+        const pagespara = document.createElement('p');
+        pagespara.innerText = book.pages;
+        card.appendChild(pagespara);
+
+        const readpara = document.createElement('p');
+        readpara.innerText = book.read;
+        card.appendChild(readpara);
+
+        output.appendChild(card);
     }
 }
 
