@@ -91,8 +91,25 @@ function displayNewBook (book) {
     card.appendChild(pagespara);
 
     const readpara = document.createElement('p');
-    readpara.innerText = `Reading status: ${book.read}`;
+    let readStatus = book.read;
+    readpara.innerText = `Reading status: ${readStatus}`;
     card.appendChild(readpara);
+
+    const readingStatus = document.createElement('button');
+    readingStatus.textContent = 'Change Reading Status';
+    readingStatus.addEventListener('click', () => {
+        if (readStatus == 'Finished reading')
+            {
+                readStatus = 'Not read';
+                readpara.innerText = `Reading status: ${readStatus}`;
+            }
+        else if (readStatus == 'Not read')
+            {
+                readStatus = 'Finished reading';
+                readpara.innerText = `Reading status: ${readStatus}`;
+            }    
+    });
+    card.appendChild(readingStatus);
 
     deleteBook(card);
 
