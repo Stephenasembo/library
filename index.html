@@ -8,39 +8,41 @@
     <script src="javascript.js" defer></script>
 </head>
 <body>
-    <button id = 'new-book'>Add New Book</button>
-    <dialog>
-        <form method="dialog">
-            <p>
-                <label for = 'bookTitle'>Book Title</label>
-                <input type = 'text' id = 'bookTitle' name = 'title'>
-            </p>
-            <p>
-                <label for = 'bookAuthor'>Book Author</label>
-                <input type = 'text' id = 'bookAuthor' name = 'author'>
-            </p>
-            <p>
-                <label for = 'bookPages'>Book Pages</label>
-                <input type = 'number' id = 'bookPages' name = 'pages'>
-            </p>
-            <p>
-                Have you finished reading this book ?
-                <fieldset>
-                    <div>
-                        <input type = 'radio' value="Yes" id = 'yes' name = 'read'>
-                        <label for = 'yes'>Yes I have</label>
-                    </div>
-                    <div>
-                        <input type='radio' value="No" id = 'no' name = 'read'>
-                        <label for = 'no'>Not yet done</label>
-                    </div>
-                </fieldset>
-            </p>
-            <button id = 'cancelBtn'>Cancel</button>
-            <button id = 'confirmBtn'>Confirm</button>
+    <div class="container">
+        <button id = 'new-book'>Add New Book</button>
+        <dialog>
+            <form method="dialog">
+                <p>
+                    <label for = 'bookTitle'>Book Title</label>
+                    <input type = 'text' id = 'bookTitle' name = 'title'>
+                </p>
+                <p>
+                    <label for = 'bookAuthor'>Book Author</label>
+                    <input type = 'text' id = 'bookAuthor' name = 'author'>
+                </p>
+                <p>
+                    <label for = 'bookPages'>Book Pages</label>
+                    <input type = 'number' id = 'bookPages' name = 'pages'>
+                </p>
+                <p>
+                    Have you finished reading this book ?
+                    <fieldset>
+                        <div>
+                            <input type = 'radio' value="Yes" id = 'yes' name = 'read'>
+                            <label for = 'yes'>Yes I have</label>
+                        </div>
+                        <div>
+                            <input type='radio' value="No" id = 'no' name = 'read'>
+                            <label for = 'no'>Not yet done</label>
+                        </div>
+                    </fieldset>
+                </p>
+                <button id = 'cancelBtn'>Cancel</button>
+                <button id = 'confirmBtn'>Confirm</button>
 
-        </form>    
-    </dialog>
-    <output></output>
+            </form>    
+        </dialog>
+        <output></output>
+    </div>
 </body>
 </html>
