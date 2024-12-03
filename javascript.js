@@ -58,8 +58,8 @@ confirmBtn.addEventListener('click', (event) => {
         }
     };
 
-    readStatus.checked = false;
-
+    resetForm();
+    
     const newBook = new Book (newTitle, newAuthor, newPages, newRead);
     addBookToLibrary(newBook);
     displayNewBook(newBook);
@@ -68,11 +68,7 @@ confirmBtn.addEventListener('click', (event) => {
 cancelBtn.addEventListener('click', (event) => {
     event.preventDefault();
     dialog.close();
-    bookTitle.value = '';
-    bookAuthor.value = '';
-    bookPages.value = '';
-    yesRadio.checked = false;
-    noRadio.checked = false;
+    resetForm();
 });
 
 function displayNewBook (book) {
@@ -95,4 +91,12 @@ function displayNewBook (book) {
     card.appendChild(readpara);
 
     output.appendChild(card);
+}
+
+function resetForm () {
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
+    yesRadio.checked = false;
+    noRadio.checked = false;
 }
