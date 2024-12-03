@@ -94,6 +94,8 @@ function displayNewBook (book) {
     readpara.innerText = `Reading status: ${book.read}`;
     card.appendChild(readpara);
 
+    deleteBook(card);
+
     output.appendChild(card);
 }
 
@@ -124,4 +126,14 @@ function inputError (title, author, pages, readStatus) {
     }
 
     return false;
+}
+
+function deleteBook (card) {
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete Book';
+
+    deleteBtn.addEventListener('click', () => {
+        output.removeChild(card);
+    })
+    card.appendChild(deleteBtn);
 }
