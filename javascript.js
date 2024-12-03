@@ -24,8 +24,8 @@ function Book (title, author, pages, read) {
     this.read = read
 };
 
-let harry = new Book ('Harry Porter', 'Harry', 295, 'Not read');
-let winnie = new Book ('Winnie the Poo', 'Nick', 100, 'Finished reading');
+let harry = new Book ('Harry Porter And The Philospher\'s Stone', 'J K Rowling', 223, 'Not read');
+let winnie = new Book ('Winnie the Pooh', 'A. A Milne', 176, 'Finished reading');
 addBookToLibrary(harry);
 addBookToLibrary(winnie);
 
