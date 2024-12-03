@@ -4,6 +4,7 @@ body {
 
 .container {
     background-color: #e2e8f0;
+    min-height: min-content;
     height: 100vh;
 }
 
