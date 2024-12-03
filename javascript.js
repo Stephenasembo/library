@@ -95,6 +95,7 @@ function displayNewBook (book) {
     readpara.innerText = `Reading status: ${readStatus}`;
     card.appendChild(readpara);
 
+    const btnPara = document.createElement('p');
     const readingStatus = document.createElement('button');
     readingStatus.textContent = 'Change Reading Status';
     readingStatus.addEventListener('click', () => {
@@ -109,9 +110,11 @@ function displayNewBook (book) {
                 readpara.innerText = `Reading status: ${readStatus}`;
             }    
     });
-    card.appendChild(readingStatus);
+    
+    btnPara.appendChild(readingStatus)
+    deleteBook(card, btnPara);
 
-    deleteBook(card);
+    card.appendChild(btnPara);
 
     output.appendChild(card);
 }
@@ -145,12 +148,12 @@ function inputError (title, author, pages, readStatus) {
     return false;
 }
 
-function deleteBook (card) {
+function deleteBook (card, btnPara) {
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete Book';
 
     deleteBtn.addEventListener('click', () => {
         output.removeChild(card);
     })
-    card.appendChild(deleteBtn);
+    btnPara.appendChild(deleteBtn);
 }
