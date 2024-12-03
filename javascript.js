@@ -8,6 +8,9 @@ const bookTitle = document.querySelector('#bookTitle');
 const bookAuthor = document.querySelector('#bookAuthor');
 const bookPages = document.querySelector('#bookPages');
 
+const yesRadio = document.querySelector('#yes');
+const noRadio = document.querySelector('#no');
+
 const library = [];
 
 function addBookToLibrary () {
@@ -61,11 +64,19 @@ confirmBtn.addEventListener('click', (event) => {
     console.log(bookAuthor.value)
     console.log(bookPages.value)
 
-    const readStatus = document.querySelector('input[type = "radio"]:checked')
-    console.log(readStatus.value);
+    const readStatus = document.querySelector('input[type = "radio"]:checked');
+    if (readStatus) {
+        console.log(readStatus.value);
+    };
+    readStatus.checked = false;
 });
 
 cancelBtn.addEventListener('click', (event) => {
     event.preventDefault();
     dialog.close();
+    bookTitle.value = '';
+    bookAuthor.value = '';
+    bookPages.value = '';
+    yesRadio.checked = false;
+    noRadio.checked = false;
 });
