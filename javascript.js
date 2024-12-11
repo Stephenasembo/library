@@ -17,12 +17,14 @@ function addBookToLibrary (book) {
     library.push(book);
 }
 
-function Book (title, author, pages, read) {
-    this.title = title,
-    this.author = author,
-    this.pages = pages,
-    this.read = read
-};
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title,
+        this.author = author,
+        this.pages = pages,
+        this.read = read
+    }
+}
 
 let harry = new Book ('Harry Porter And The Philospher\'s Stone', 'J K Rowling', 223, 'Not read');
 let winnie = new Book ('Winnie the Pooh', 'A. A Milne', 176, 'Finished reading');
