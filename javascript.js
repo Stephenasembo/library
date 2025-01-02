@@ -174,18 +174,21 @@ function deleteBook (card, btnPara) {
 function formError(){
     if (bookTitle.validity.valueMissing) {
         bookTitle.setCustomValidity('Please input the book title')
+        delayErrorMsg(bookTitle);
         return true;
     } else {
         bookTitle.setCustomValidity('');
     }
     if (bookAuthor.validity.valueMissing) {
         bookAuthor.setCustomValidity('Please input the author of the book');
+        delayErrorMsg(bookAuthor);
         return true;
     } else {
         bookAuthor.setCustomValidity('');
     }
     if (bookPages.validity.valueMissing) {
         bookPages.setCustomValidity('Please input the number of pages of the book')
+        delayErrorMsg(bookPages);
         return true;
     } else {
         bookPages.setCustomValidity('');
@@ -198,4 +201,11 @@ function formError(){
         yesRadio.setCustomValidity('');
     }
     return false
+}
+
+// Prevent interruption by error message
+function delayErrorMsg(input){
+    input.addEventListener('input', () => {
+        input.setCustomValidity('');
+    })
 }
