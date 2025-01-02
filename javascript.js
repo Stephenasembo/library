@@ -1,6 +1,7 @@
 const output = document.querySelector('output');
 const addNewBook = document.querySelector('#new-book');
 const dialog = document.querySelector('dialog');
+const form = document.querySelector('form');
 const confirmBtn = document.querySelector('#confirmBtn');
 const cancelBtn = document.querySelector('#cancelBtn');
 
@@ -42,33 +43,37 @@ displayLibrary();
 addNewBook.addEventListener('click', () => dialog.showModal());
 
 confirmBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    dialog.close()
-    const newTitle = bookTitle.value;
-    const newAuthor = bookAuthor.value;
-    const newPages = bookPages.value;
-    const readStatus = document.querySelector('input[type = "radio"]:checked');
-    let newRead;
+    // event.preventDefault();
+    let error = formError();
+    // dialog.close()
+    if (!error){
+        const newTitle = bookTitle.value;
+        const newAuthor = bookAuthor.value;
+        const newPages = bookPages.value;
+        const readStatus = document.querySelector('input[type = "radio"]:checked');
+        let newRead;
 
-    if (readStatus) {
-        if (readStatus.value == 'Yes')
-            {
-                newRead = 'Finished reading';
+        if (readStatus) {
+            if (readStatus.value == 'Yes')
+                {
+                    newRead = 'Finished reading';
+                }
+            else {
+                newRead = 'Not read';
             }
-        else {
-            newRead = 'Not read';
-        }
-    };
+        };
+    }
 
-    let error = inputError(newTitle, newAuthor, newPages, readStatus);
+    // let error = inputError(newTitle, newAuthor, newPages, readStatus);
 
+    /*
     if (!error) {
         const newBook = new Book (newTitle, newAuthor, newPages, newRead);
         addBookToLibrary(newBook);
         displayNewBook(newBook);    
         resetForm();
     }
-
+    */
 });
 
 cancelBtn.addEventListener('click', (event) => {
@@ -131,7 +136,7 @@ function resetForm () {
 
 function inputError (title, author, pages, readStatus) {
     if (!title) {
-        alert ('Cannot create book. Title field is empty');
+        // alert ('Cannot create book. Title field is empty');
         return true;
     }
     if (!author) {
@@ -158,4 +163,26 @@ function deleteBook (card, btnPara) {
         output.removeChild(card);
     })
     btnPara.appendChild(deleteBtn);
+}
+
+function formError(){
+    if (bookTitle.validity.valueMissing) {
+        bookTitle.setCustomValidity('Please input the book title')
+        return true;
+    } else {
+        bookTitle.setCustomValidity('');
+    }
+    if (bookAuthor.validity.valueMissing) {
+        bookAuthor.setCustomValidity('Please input the author of the book');
+        return true;
+    } else {
+        bookAuthor.setCustomValidity('');
+    }
+    if (bookPages.validity.valueMissing) {
+        bookPages.setCustomValidity('Please input the number of pages of the book')
+        return true;
+    } else {
+        bookPages.setCustomValidity('');
+    }
+    return false
 }
