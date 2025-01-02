@@ -62,6 +62,12 @@ confirmBtn.addEventListener('click', (event) => {
                 newRead = 'Not read';
             }
         };
+        dialog.close();
+        const newBook = new Book (newTitle, newAuthor, newPages, newRead);
+        addBookToLibrary(newBook);
+        displayNewBook(newBook);    
+        resetForm();
+
     }
 
     // let error = inputError(newTitle, newAuthor, newPages, readStatus);
@@ -187,6 +193,7 @@ function formError(){
     let checkStatus = document.querySelector('input[type = "radio"]:checked');
     if (!checkStatus){
         yesRadio.setCustomValidity('Please select your reading status of the book')
+        return true
     } else {
         yesRadio.setCustomValidity('');
     }
