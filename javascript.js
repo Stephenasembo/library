@@ -1,7 +1,6 @@
 const output = document.querySelector('output');
 const addNewBook = document.querySelector('#new-book');
 const dialog = document.querySelector('dialog');
-const form = document.querySelector('form');
 const confirmBtn = document.querySelector('#confirmBtn');
 const cancelBtn = document.querySelector('#cancelBtn');
 
@@ -43,9 +42,7 @@ displayLibrary();
 addNewBook.addEventListener('click', () => dialog.showModal());
 
 confirmBtn.addEventListener('click', (event) => {
-    // event.preventDefault();
     let error = formError();
-    // dialog.close()
     if (!error){
         const newTitle = bookTitle.value;
         const newAuthor = bookAuthor.value;
@@ -69,17 +66,6 @@ confirmBtn.addEventListener('click', (event) => {
         resetForm();
 
     }
-
-    // let error = inputError(newTitle, newAuthor, newPages, readStatus);
-
-    /*
-    if (!error) {
-        const newBook = new Book (newTitle, newAuthor, newPages, newRead);
-        addBookToLibrary(newBook);
-        displayNewBook(newBook);    
-        resetForm();
-    }
-    */
 });
 
 cancelBtn.addEventListener('click', (event) => {
@@ -138,27 +124,6 @@ function resetForm () {
     bookPages.value = '';
     yesRadio.checked = false;
     noRadio.checked = false;
-}
-
-function inputError (title, author, pages, readStatus) {
-    if (!title) {
-        // alert ('Cannot create book. Title field is empty');
-        return true;
-    }
-    if (!author) {
-        alert ('Cannot create book. Author field is empty');
-        return true;
-    }
-    if (!pages) {
-        alert ('Cannot create book. Pages field is empty');
-        return true;
-    }
-    if (!readStatus) {
-        alert ('Cannot create book. Reading status is not provided');
-        return true;
-    }
-
-    return false;
 }
 
 function deleteBook (card, btnPara) {
