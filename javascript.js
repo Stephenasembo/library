@@ -184,5 +184,11 @@ function formError(){
     } else {
         bookPages.setCustomValidity('');
     }
+    let checkStatus = document.querySelector('input[type = "radio"]:checked');
+    if (!checkStatus){
+        yesRadio.setCustomValidity('Please select your reading status of the book')
+    } else {
+        yesRadio.setCustomValidity('');
+    }
     return false
 }
